@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>310 다이어트 클래스 14기 — 운영 대시보드</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Pretendard', 'Noto Sans KR', sans-serif;
+    background: #f4f5f7;
+    color: #1a1a2e;
+    line-height: 1.5;
+    padding: 25px 20px;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  /* 헤더 */
+  .header {
+    background: linear-gradient(135deg, #2d3561 0%, #4d5b8c 100%);
+    color: #fff;
+    padding: 28px 35px;
+    border-radius: 14px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 20px rgba(45, 53, 97, 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .header .subtitle { font-size: 13px; opacity: 0.8; }
+  .header .timestamp { font-size: 12px; opacity: 0.75; text-align: right; }
+  .header .timestamp .big { font-size: 16px; font-weight: 700; opacity: 1; }
+
+  /* 그리드 */
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+  .grid-2 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 18px; margin-bottom: 18px; }
+  .grid-1 { margin-bottom: 18px; }
+
+  /* 카드 */
+  .card {
+    background: #fff;
+    padding: 22px 26px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #6c7293;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-title .badge {
+    font-size: 11px;
+    background: #4d8cff;
+    color: #fff;
+    padding: 3px 9px;
+    border-radius: 11px;
+  }
+
+  /* 큰 숫자 */
+  .big-number {
+    font-size: 38px;
+    font-weight: 800;
+    color: #2d3561;
+    line-height: 1.2;
+  }
+  .big-number .unit { font-size: 20px; color: #6c7293; }
+  .subtitle-text {
+    font-size: 12px;
+    color: #6c7293;
+    margin-top: 6px;
+  }
+  .star { color: #ffc107; font-weight: 700; }
+
+  /* D-Day 카드 */
+  .dday-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .dday-card {
+    padding: 12px 14px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #e0e0e8;
+    background: #f8f9fc;
+  }
+  .dday-card.past { opacity: 0.4; }
+  .dday-card.today { border-color: #dc3545; background: #fff5f5; }
+  .dday-card.upcoming { border-color: #4d8cff; }
+  .dday-num {
+    font-size: 18px;
+    font-weight: 800;
+    color: #2d3561;
+  }
+  .dday-card.today .dday-num { color: #dc3545; }
+  .dday-label { font-size: 11px; color: #4a4a5e; margin-top: 3px; }
+  .dday-date { font-size: 10px; color: #8888a0; margin-top: 2px; }
+
+  /* 일평균 비교 막대 */
+  .compare-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 90px;
+    gap: 12px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f5;
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+  .compare-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .bar-fill {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: 80px;
+  }
+  .bar-13 { background: #6c7293; }
+  .bar-14 { background: #4d8cff; }
+  .compare-status {
+    font-size: 12px;
+    font-weight: 700;
+    text-align: right;
+    color: #28a745;
+  }
+
+  /* 사전 결제자 표 */
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table th {
+    background: #f8f9fc;
+    padding: 8px;
+    text-align: left;
+    font-weight: 600;
+    color: #6c7293;
+    border-bottom: 2px solid #e0e0e8;
+  }
+  table td {
+    padding: 8px;
+    border-bottom: 1px solid #f0f0f5;
+  }
+
+  /* 일별 등록 추이 차트 */
+  .daily-chart {
+    display: flex;
+    align-items: flex-end;
+    height: 180px;
+    gap: 6px;
+    padding: 10px 0;
+    border-bottom: 2px solid #f0f0f5;
+  }
+  .daily-bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+  }
+  .daily-bar-cum {
+    width: 80%;
+    background: linear-gradient(to top, #4d8cff 0%, #6d9eff 100%);
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    min-height: 12px;
+  }
+  .daily-bar-num {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 700;
+    color: #2d3561;
+  }
+  .daily-bar-date {
+    font-size: 10px;
+    color: #4a4a5e;
+    margin-top: 6px;
+    font-weight: 600;
+  }
+  .daily-bar-new {
+    font-size: 9px;
+    color: #28a745;
+    font-weight: 700;
+  }
+
+  /* SNS 채널 전환율 차트 */
+  .sns-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 70px;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f5;
+  }
+  .sns-row:last-child { border-bottom: none; }
+  .sns-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+  .sns-bar-wrap {
+    background: #f0f0f5;
+    border-radius: 4px;
+    height: 22px;
+    overflow: hidden;
+  }
+  .sns-bar {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 50px;
+    transition: width 0.3s;
+  }
+  .sns-info {
+    font-size: 11px;
+    color: #6c7293;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  /* 카카오 친구 추이 차트 */
+  .kakao-chart {
+    display: flex;
+    align-items: flex-end;
+    height: 140px;
+    gap: 8px;
+    padding: 10px 0;
+  }
+  .kakao-bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+  }
+  .kakao-bar {
+    width: 70%;
+    background: linear-gradient(to top, #ffc107 0%, #ffd54f 100%);
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    min-height: 12px;
+  }
+  .kakao-bar-num {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 700;
+    color: #2d3561;
+  }
+  .kakao-bar-date {
+    font-size: 9px;
+    color: #4a4a5e;
+    margin-top: 5px;
+    font-weight: 600;
+  }
+
+  /* 액션 리스트 */
+  .action-list {
+    list-style: none;
+    font-size: 13px;
+    color: #1a1a2e;
+  }
+  .action-list li {
+    padding: 9px 0;
+    border-bottom: 1px dashed #e0e0e8;
+    color: #4a4a5e;
+  }
+  .action-list li:last-child { border-bottom: none; }
+  .action-list b { color: #dc3545; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div>
+      <h1>310 다이어트 클래스 14기 — 운영 대시보드</h1>
+      <div class="subtitle">매일 sync.bat 실행 시 자동 갱신 · 박민수님 + 록코치/이사님 보고용</div>
+    </div>
+    <div class="timestamp">
+      <div class="big">2026-05-18 18:55</div>
+      <div>마지막 갱신</div>
+    </div>
+  </div>
+
+  <!-- D-Day -->
+  <div class="grid-1">
+    <div class="card">
+      <div class="card-title">🎯 D-Day 카운트다운 (8개 분기점)</div>
+      <div class="dday-grid">
+        <div class="dday-card past"><div class="dday-num">완료</div><div class="dday-label">신규 프로모션 시작</div><div class="dday-date">5/15</div></div><div class="dday-card upcoming"><div class="dday-num">D-3</div><div class="dday-label">사전등록 마감</div><div class="dday-date">5/21</div></div><div class="dday-card upcoming"><div class="dday-num">D-4</div><div class="dday-label">1차 EB OPEN</div><div class="dday-date">5/22</div></div><div class="dday-card upcoming"><div class="dday-num">D-6</div><div class="dday-label">1차 EB 마감</div><div class="dday-date">5/24</div></div><div class="dday-card upcoming"><div class="dday-num">D-18</div><div class="dday-label">2차 EB OPEN</div><div class="dday-date">6/5</div></div><div class="dday-card upcoming"><div class="dday-num">D-20</div><div class="dday-label">2차 EB 마감</div><div class="dday-date">6/7</div></div><div class="dday-card upcoming"><div class="dday-num">D-32</div><div class="dday-label">정규 OPEN</div><div class="dday-date">6/19</div></div><div class="dday-card upcoming"><div class="dday-num">D-41</div><div class="dday-label">14기 종료</div><div class="dday-date">6/28</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 핵심 KPI 3개 -->
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">📊 14기 사전등록</div>
+      <div class="big-number">26 <span class="unit">/ 27명</span></div>
+      <div class="subtitle-text">실등록 / 총신청 · 환불 0 / 미입금 1</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">💬 카카오 채널 친구 (2026-05-12 기준)</div>
+      <div class="big-number">3,183 <span class="unit">명 (+18)</span></div>
+      <div class="subtitle-text">유튜브 1,171,521 · 인스타 102,296 · 틱톡 15,606 · 네이버TV 43,596</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📺 YouTube 프로모션 누적</div>
+      <div class="big-number" style="font-size:28px">₩2,136,113</div>
+      <div class="subtitle-text">노출 622,242 · 웹방문 21,548</div>
+    </div>
+  </div>
+
+  <!-- 13기 vs 14기 일평균 비교 + 다음 액션 -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">📈 14기 vs 13기 일평균 비교 <span class="badge">자동 갱신</span></div>
+      <div class="compare-row"><div class="compare-label">사전등록</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:27%">13기 0.3명/일</div><div class="bar-14 bar-fill" style="width:100%">14기 1.1명/일</div></div><div class="compare-status">⭐ +267%</div></div><div class="compare-row"><div class="compare-label">1차 EB</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 9.3명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">대기1</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:40%">13기 0.4명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">2차 EB</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 9.7명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">대기2</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:80%">13기 0.8명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">정규</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 7.7명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">추가</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 1.9명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📋 다음 액션 (임박 3개)</div>
+      <ul class="action-list">
+        <li><b>D-3 (5/21)</b> 사전등록 마감</li><li><b>D-4 (5/22)</b> 1차 EB OPEN</li><li><b>D-6 (5/24)</b> 1차 EB 마감</li>
+      </ul>
+      <div style="margin-top:15px;padding-top:15px;border-top:1px solid #f0f0f5">
+        <div class="card-title" style="border:none;padding:0;margin-bottom:8px">🎯 13기 베이스라인</div>
+        <div style="font-size:12px;color:#4a4a5e;line-height:1.7">
+          순매출: <b>118540000</b><br>
+          총 광고비: <b>3485572</b><br>
+          ROAS: <b style="color:#28a745">30.7536324</b><br>
+          CAC: <b>30845.76991</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 차트 섹션: 일별 등록 + SNS 채널 + 카카오 친구 -->
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">📈 14기 사전등록 일별 추이 <span class="badge">매일 자동</span></div>
+      <div class="daily-chart">
+        <div class="daily-bar-col"><div class="daily-bar-cum" style="height:4%"><span class="daily-bar-num">1</span></div><div class="daily-bar-date">4/30</div><div class="daily-bar-new">+1</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:7%"><span class="daily-bar-num">2</span></div><div class="daily-bar-date">5/1</div><div class="daily-bar-new">+1</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:15%"><span class="daily-bar-num">4</span></div><div class="daily-bar-date">5/4</div><div class="daily-bar-new">+2</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:33%"><span class="daily-bar-num">9</span></div><div class="daily-bar-date">5/6</div><div class="daily-bar-new">+5</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:41%"><span class="daily-bar-num">11</span></div><div class="daily-bar-date">5/7</div><div class="daily-bar-new">+2</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:48%"><span class="daily-bar-num">13</span></div><div class="daily-bar-date">5/8</div><div class="daily-bar-new">+2</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:52%"><span class="daily-bar-num">14</span></div><div class="daily-bar-date">5/10</div><div class="daily-bar-new">+1</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:63%"><span class="daily-bar-num">17</span></div><div class="daily-bar-date">5/11</div><div class="daily-bar-new">+3</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:70%"><span class="daily-bar-num">19</span></div><div class="daily-bar-date">5/12</div><div class="daily-bar-new">+2</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:74%"><span class="daily-bar-num">20</span></div><div class="daily-bar-date">5/13</div><div class="daily-bar-new">+1</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:81%"><span class="daily-bar-num">22</span></div><div class="daily-bar-date">5/14</div><div class="daily-bar-new">+2</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:89%"><span class="daily-bar-num">24</span></div><div class="daily-bar-date">5/15</div><div class="daily-bar-new">+2</div></div><div class="daily-bar-col"><div class="daily-bar-cum" style="height:100%"><span class="daily-bar-num">27</span></div><div class="daily-bar-date">5/17</div><div class="daily-bar-new">+3</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📺 SNS 채널별 결제 전환율 <span class="badge">5/11 이후</span></div>
+      <div class="sns-row"><div class="sns-name">📺 유튜브</div><div class="sns-bar-wrap"><div class="sns-bar" style="width:47%;background:#ffc107"><span>23.50%</span></div></div><div class="sns-info">4/17명</div></div><div class="sns-row"><div class="sns-name">📷 인스타그램</div><div class="sns-bar-wrap"><div class="sns-bar" style="width:0%;background:#cccccc"><span>—</span></div></div><div class="sns-info">0/0명</div></div><div class="sns-row"><div class="sns-name">🎵 틱톡</div><div class="sns-bar-wrap"><div class="sns-bar" style="width:0%;background:#cccccc"><span>—</span></div></div><div class="sns-info">0/0명</div></div><div class="sns-row"><div class="sns-name">📡 네이버TV</div><div class="sns-bar-wrap"><div class="sns-bar" style="width:100%;background:#28a745"><span>50.00%</span></div></div><div class="sns-info">1/2명</div></div><div class="sns-row"><div class="sns-name">합계</div><div class="sns-bar-wrap"><div class="sns-bar" style="width:53%;background:#ffc107"><span>26.30%</span></div></div><div class="sns-info">5/19명</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">💬 카카오 친구 주간 추이</div>
+      <div class="kakao-chart">
+        <div class="kakao-bar-col"><div class="kakao-bar" style="height:20%"><span class="kakao-bar-num">2,670</span></div><div class="kakao-bar-date">03/11</div></div><div class="kakao-bar-col"><div class="kakao-bar" style="height:21%"><span class="kakao-bar-num">2,674</span></div><div class="kakao-bar-date">03/20</div></div><div class="kakao-bar-col"><div class="kakao-bar" style="height:20%"><span class="kakao-bar-num">2,672</span></div><div class="kakao-bar-date">03/24</div></div><div class="kakao-bar-col"><div class="kakao-bar" style="height:57%"><span class="kakao-bar-num">2,909</span></div><div class="kakao-bar-date">03/31</div></div><div class="kakao-bar-col"><div class="kakao-bar" style="height:77%"><span class="kakao-bar-num">3,037</span></div><div class="kakao-bar-date">04/07</div></div><div class="kakao-bar-col"><div class="kakao-bar" style="height:82%"><span class="kakao-bar-num">3,070</span></div><div class="kakao-bar-date">04/14</div></div><div class="kakao-bar-col"><div class="kakao-bar" style="height:89%"><span class="kakao-bar-num">3,111</span></div><div class="kakao-bar-date">04/21</div></div><div class="kakao-bar-col"><div class="kakao-bar" style="height:95%"><span class="kakao-bar-num">3,148</span></div><div class="kakao-bar-date">04/29</div></div><div class="kakao-bar-col"><div class="kakao-bar" style="height:97%"><span class="kakao-bar-num">3,165</span></div><div class="kakao-bar-date">05/06</div></div><div class="kakao-bar-col"><div class="kakao-bar" style="height:100%"><span class="kakao-bar-num">3,183</span></div><div class="kakao-bar-date">05/12</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 사전등록자 명단 (박민수님 직접 입력) -->
+  <div class="grid-1">
+    <div class="card">
+      <div class="card-title">📋 사전등록자 명단 (박민수님 직접 입력) <span class="badge">14기 허브 R6~</span></div>
+      <table>
+        <thead>
+          <tr><th>#</th><th>날짜</th><th>Day</th><th>당일 신규/환불</th><th>누적</th><th>비고 (이름·사유)</th><th>실등록</th><th>구간 전환율</th></tr>
+        </thead>
+        <tbody><tr><td>13</td><td>5/17 (AAA)</td><td>D-5</td><td><span style="color:#28a745;font-weight:700">+3</span> </td><td>27</td><td style="font-weight:600">김채원,김수련,손혜정</td><td>1087</td><td>2.48%</td></tr><tr><td>12</td><td>5/15 (AAA)</td><td>D-7</td><td><span style="color:#28a745;font-weight:700">+2</span> </td><td>24</td><td style="font-weight:600">박서연,이라경</td><td>1087</td><td>2.21%</td></tr><tr><td>11</td><td>5/14 (AAA)</td><td>D-8</td><td><span style="color:#28a745;font-weight:700">+2</span> </td><td>22</td><td style="font-weight:600">금현숙,임덕순</td><td>1087</td><td>2.02%</td></tr><tr><td>10</td><td>5/13 (AAA)</td><td>D-9</td><td><span style="color:#28a745;font-weight:700">+1</span> </td><td>20</td><td style="font-weight:600">최시내</td><td>1087</td><td>1.84%</td></tr><tr><td>9</td><td>5/12 (AAA)</td><td>D-10</td><td><span style="color:#28a745;font-weight:700">+2</span> </td><td>19</td><td style="font-weight:600">손영주,강성하</td><td>1087</td><td>1.75%</td></tr><tr><td>8</td><td>5/11 (AAA)</td><td>D-11</td><td><span style="color:#28a745;font-weight:700">+3</span> </td><td>17</td><td style="font-weight:600">정미순, 이나영,이애리시</td><td>1087</td><td>1.56%</td></tr><tr><td>7</td><td>5/10 (AAA)</td><td>D-12</td><td><span style="color:#28a745;font-weight:700">+1</span> </td><td>14</td><td style="font-weight:600">이경희</td><td>1087</td><td>1.29%</td></tr><tr><td>6</td><td>5/8 (AAA)</td><td>D-14</td><td><span style="color:#28a745;font-weight:700">+2</span> </td><td>13</td><td style="font-weight:600">최보희,이주영</td><td>1087</td><td>1.20%</td></tr><tr><td>5</td><td>5/7 (AAA)</td><td>D-15</td><td><span style="color:#28a745;font-weight:700">+2</span> </td><td>11</td><td style="font-weight:600">오주현, 정은미</td><td>1087</td><td>1.01%</td></tr><tr><td>4</td><td>5/6 (AAA)</td><td>D-16</td><td><span style="color:#28a745;font-weight:700">+5</span> </td><td>9</td><td style="font-weight:600">장솔, 어수연, 김경화, 정명민 (유미현 미입금자)</td><td>1087</td><td>0.83%</td></tr><tr><td>3</td><td>5/4 (AAA)</td><td>D-18</td><td><span style="color:#28a745;font-weight:700">+2</span> </td><td>4</td><td style="font-weight:600">남경희, 김미숙</td><td>1087</td><td>0.37%</td></tr><tr><td>2</td><td>5/1 (AAA)</td><td>D-21</td><td><span style="color:#28a745;font-weight:700">+1</span> </td><td>2</td><td style="font-weight:600">김혜정</td><td>1087</td><td>0.18%</td></tr><tr><td>1</td><td>4/30 (AAA)</td><td>D-22</td><td><span style="color:#28a745;font-weight:700">+1</span> </td><td>1</td><td style="font-weight:600">이영순</td><td>1087</td><td>0.09%</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <div style="text-align:center;padding:18px;color:#8888a0;font-size:11px">
+    sync.bat 실행 시 자동 갱신 · 매일 1회 박민수님 더블클릭 · 14기 캠페인 종료: 2026-06-28
+  </div>
+
+</div>
+</body>
+</html>

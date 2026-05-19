@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>박민수님 14기 마케팅 운영 매뉴얼</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Pretendard', 'Noto Sans KR', sans-serif;
+    background: #f4f5f7;
+    color: #1a1a2e;
+    line-height: 1.55;
+    padding: 30px 20px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1c2842 0%, #2d3561 100%);
+    color: #fff;
+    padding: 28px 35px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 18px rgba(28, 40, 66, 0.25);
+  }
+  .header h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+  .header .subtitle { font-size: 13px; opacity: 0.85; }
+
+  .section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  }
+  .section h2 {
+    font-size: 18px;
+    color: #2d3561;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #4d8cff;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h2 .badge {
+    font-size: 11px;
+    background: #4d8cff;
+    color: #fff;
+    padding: 3px 9px;
+    border-radius: 11px;
+    font-weight: 600;
+  }
+
+  .task-grid {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .task-time {
+    background: #f8f9fc;
+    border-left: 4px solid #4d8cff;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2d3561;
+    text-align: center;
+  }
+  .task-time.daily { border-color: #28a745; color: #1a7a3a; }
+  .task-time.alert { border-color: #dc3545; color: #c82333; }
+  .task-content {
+    font-size: 14px;
+    color: #1a1a2e;
+    padding-top: 6px;
+  }
+  .task-content b { color: #4d8cff; }
+  .task-content .alert-tag {
+    background: #ffe5d4;
+    color: #c45a1a;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+
+  table.milestone {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  table.milestone th {
+    background: #2d3561;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-weight: 600;
+  }
+  table.milestone td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #f0f0f5;
+  }
+  table.milestone tr:hover { background: #f8f9fc; }
+  table.milestone .dday { font-weight: 700; color: #dc3545; }
+  table.milestone .cell {
+    background: #fff8e7;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  .sheet-card {
+    background: #f8f9fc;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 14px;
+  }
+  .sheet-card .sheet-name {
+    font-weight: 700;
+    color: #2d3561;
+    font-size: 14px;
+  }
+  .sheet-card .sheet-desc {
+    font-size: 13px;
+    color: #4a4a5e;
+  }
+
+  .help-box {
+    background: linear-gradient(135deg, #fff8e7 0%, #fff3d6 100%);
+    border-left: 4px solid #ffc107;
+    padding: 16px 20px;
+    border-radius: 6px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #856404;
+  }
+  .help-box b { color: #b8860b; }
+
+  .footer {
+    text-align: center;
+    color: #8888a0;
+    font-size: 11px;
+    padding: 15px;
+    margin-top: 15px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>📋 14기 마케팅 운영 매뉴얼</h1>
+    <div class="subtitle">박민수님 매일·분기점 작업 가이드 | 2026.05.13 ~ 06.28 (D-46일)</div>
+  </div>
+
+  <!-- 매일 작업 -->
+  <div class="section">
+    <h2>🟢 매일 작업 <span class="badge">1~3분</span></h2>
+    <div class="task-grid">
+      <div class="task-time daily">매일 1번</div>
+      <div class="task-content">
+        <b>1. sync.bat 더블클릭</b><br>
+        위치: <span class="cell">C:\Users\momentfit\Desktop\마케팅\scripts\sync.bat</span><br>
+        → Tally + Bitly + 14기 허브 + HTML 대시보드 자동 갱신
+      </div>
+      <div class="task-time daily">등록 시</div>
+      <div class="task-content">
+        <b>2. 14기 허브 등록자 입력 (B·C·H 3개 컬럼만)</b><br>
+        <span class="cell">B열</span> 날짜 / <span class="cell">C열</span> 당일 신규 수 / <span class="cell">H열</span> 비고(이름·사유)<br>
+        → E·F·G·I·J·K열 모두 자동 채워짐
+      </div>
+      <div class="task-time daily">매일 1번</div>
+      <div class="task-content">
+        <b>3. HTML 대시보드 새로고침</b><br>
+        파일: <span class="cell">14기_운영_대시보드.html</span> (브라우저)<br>
+        → 단축키 <b>Ctrl + F5</b> (강력 새로고침)
+      </div>
+    </div>
+  </div>
+
+  <!-- 분기점 작업 -->
+  <div class="section">
+    <h2>🟡 분기점 작업 <span class="badge">8회 · 각 5분</span></h2>
+
+    <table class="milestone">
+      <thead>
+        <tr><th>날짜</th><th>D-Day</th><th>작업</th><th>입력 셀</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>5/14 (수)</b></td>
+          <td class="dday">D-1</td>
+          <td>🛑 <b>기존 YouTube 프로모션 일시중지</b><br>+ 종료 시점 누적값 메모</td>
+          <td><span class="cell">기수별 비교!D45</span></td>
+        </tr>
+        <tr>
+          <td><b>5/15 (목)</b></td>
+          <td class="dday">D-7</td>
+          <td>🚀 <b>신규 YouTube 프로모션 발행</b> (영상 그대로, 한도 500~600만)<br>+ D46 = 0 입력</td>
+          <td><span class="cell">기수별 비교!D46</span></td>
+        </tr>
+        <tr>
+          <td><b>5/19 (월)</b></td>
+          <td class="dday">D-3</td>
+          <td>📷 <b>인스타 광고 발행 (Meta Ads Manager)</b><br>고객 리스트 + 관심사 타겟(45~64 여성) / 일일 ₩10만 × 6일</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><b>5/21 (수)</b></td>
+          <td class="dday">D-1</td>
+          <td>🚨 사전등록 마감 + 누적값 메모</td>
+          <td><span class="cell">기수별 비교!D47</span></td>
+        </tr>
+        <tr>
+          <td><b>5/22 (목)</b></td>
+          <td class="dday">D-Day</td>
+          <td>🎯 <b>1차 EB OPEN</b> 첫날</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><b>5/24 (토)</b></td>
+          <td class="dday">D+2</td>
+          <td>🚨 1차 EB 마감 + 누적값 메모<br>+ <b>인스타 광고 종료</b></td>
+          <td><span class="cell">기수별 비교!D48</span></td>
+        </tr>
+        <tr>
+          <td><b>6/4 (수)</b></td>
+          <td>D+23</td>
+          <td>📊 대기1 종료 + 누적값 메모</td>
+          <td><span class="cell">기수별 비교!D49</span></td>
+        </tr>
+        <tr>
+          <td><b>6/5 (목)</b></td>
+          <td>D+24</td>
+          <td>🎯 <b>2차 EB OPEN</b></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><b>6/7 (토)</b></td>
+          <td>D+26</td>
+          <td>🚨 2차 EB 마감 + 누적값 메모</td>
+          <td><span class="cell">기수별 비교!D50</span></td>
+        </tr>
+        <tr>
+          <td><b>6/18 (수)</b></td>
+          <td>D+37</td>
+          <td>📊 대기2 종료 + 누적값 메모</td>
+          <td><span class="cell">기수별 비교!D51</span></td>
+        </tr>
+        <tr>
+          <td><b>6/19 (목)</b></td>
+          <td>D+38</td>
+          <td>🎯 <b>정규 OPEN</b></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><b>6/21 (토)</b></td>
+          <td>D+40</td>
+          <td>🚨 정규 마감 + 누적값 메모</td>
+          <td><span class="cell">기수별 비교!D52</span></td>
+        </tr>
+        <tr>
+          <td><b>6/28 (토)</b></td>
+          <td class="dday">D-Final</td>
+          <td>🏁 추가등록 마감 + 14기 종료 + 최종 누적값 메모</td>
+          <td><span class="cell">기수별 비교!D53</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 시트 보기 -->
+  <div class="section">
+    <h2>📊 박민수님이 매일 보는 시트 4개</h2>
+
+    <div class="sheet-card">
+      <div class="sheet-name">🟢 14기 허브</div>
+      <div class="sheet-desc">박민수님 매일 등록자 입력 + 구간별 위젯 자동 + 메모 위젯</div>
+    </div>
+    <div class="sheet-card">
+      <div class="sheet-name">🟢 14기 등록 현황</div>
+      <div class="sheet-desc">14기 허브 자동 미러 + R49~R56 비틀리 표 + L36~O42 SNS 채널 전환율</div>
+    </div>
+    <div class="sheet-card">
+      <div class="sheet-name">🟢 14기 캘린더</div>
+      <div class="sheet-desc">일별 등록 자동 표시 (3·4월 13기 / 5·6월 14기)</div>
+    </div>
+    <div class="sheet-card">
+      <div class="sheet-name">🟣 기수별 비교</div>
+      <div class="sheet-desc">R22~R37 = 13기 vs 14기 일평균 비교<br>R39~R53 = YouTube 프로모션 누적값 메모 (분기점 8회)</div>
+    </div>
+    <div class="sheet-card">
+      <div class="sheet-name" style="color: #4d8cff;">🌐 운영 대시보드 (HTML)</div>
+      <div class="sheet-desc">파일: <span class="cell">14기_운영_대시보드.html</span> (브라우저로 열기)<br>한 화면에 D-Day · 사전등록 · 카카오 · 일평균 비교 · 결제자 명단 종합</div>
+    </div>
+  </div>
+
+  <!-- 박민수님 응대 매뉴얼 -->
+  <div class="section">
+    <h2>💬 박민수님 Tally 응답자 응대 매뉴얼</h2>
+    <div class="task-grid">
+      <div class="task-time">진성 관심</div>
+      <div class="task-content">14기 결제 유도 + 카카오 채널 친구 추가 권유</div>
+      <div class="task-time">13기 진행 중</div>
+      <div class="task-content">"15기 시작 시 우선 안내드릴게요" 짧게</div>
+      <div class="task-time">정보 수집</div>
+      <div class="task-content">"카카오 채널 친구 추가하시면 알림드릴게요"</div>
+      <div class="task-time">미입금</div>
+      <div class="task-content">D+3~5일 카톡 알림 (입금 안내 + 마감 임박)</div>
+    </div>
+  </div>
+
+  <!-- 도움말 -->
+  <div class="section">
+    <h2>❓ 박민수님 헷갈릴 때</h2>
+    <div class="help-box">
+      <b>1. sync.bat 실행했는데 데이터가 안 갱신됨</b><br>
+      → 브라우저에서 <b>Ctrl + F5</b> 강력 새로고침<br>
+      → 콘솔 창에 "✅ 대시보드 생성 완료" 메시지 확인<br><br>
+
+      <b>2. 14기 허브에 등록자 추가했는데 다른 시트에 반영 안 됨</b><br>
+      → sync.bat 실행 필요 (자동 미러 후 갱신)<br><br>
+
+      <b>3. 메모 위젯에 누적값 입력했는데 차감이 이상함</b><br>
+      → 이전 분기점 누적값도 입력했는지 확인<br>
+      → 박민수님 분기점 = D45 → D46 → D47 → ... 순차 입력<br><br>
+
+      <b>4. 헷갈리는 부분</b> → 베테랑한테 바로 질문
+    </div>
+  </div>
+
+  <div class="footer">
+    14기 마케팅 운영 매뉴얼 · 모멘트핏 박민수 · 2026.05.13 작성
+  </div>
+
+</div>
+</body>
+</html>
