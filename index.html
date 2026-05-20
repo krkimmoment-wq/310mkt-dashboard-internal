@@ -342,6 +342,28 @@
   .rev-progress-label { text-align: center; font-size: 10px; color: #6c7293; margin-top: 5px; }
   .rev-progress-label b { color: #2d3561; }
 
+  /* Day별 비교 차트 */
+  .dday-chart-card { padding-bottom: 18px; }
+  .dday-legend {
+    display: flex; gap: 22px; justify-content: center;
+    font-size: 12px; color: #4a4a5e; margin: 10px 0 12px;
+  }
+  .dday-legend span { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 14px; height: 4px; border-radius: 2px; display: inline-block; }
+  .dday-table {
+    width: 100%; border-collapse: collapse; margin-top: 12px;
+    font-size: 12px;
+  }
+  .dday-table th {
+    background: #f4f5f7; padding: 8px 10px; text-align: center;
+    font-weight: 700; color: #6c7293; border-bottom: 2px solid #e0e0e8;
+  }
+  .dday-table td {
+    padding: 8px 10px; text-align: center; border-bottom: 1px solid #f0f0f5;
+  }
+  .dday-table tr:last-child td { border-bottom: none; }
+  .dday-table b { color: #2d3561; font-size: 13px; }
+
   /* 액션 리스트 */
   .action-list {
     list-style: none;
@@ -367,7 +389,7 @@
       <div class="subtitle">매일 sync.bat 실행 시 자동 갱신 · 박민수님 + 록코치/이사님 보고용</div>
     </div>
     <div class="timestamp">
-      <div class="big">2026-05-20 15:05</div>
+      <div class="big">2026-05-20 15:19</div>
       <div>마지막 갱신</div>
     </div>
   </div>
@@ -420,6 +442,14 @@
       <div class="card-title">📺 YouTube 프로모션 누적</div>
       <div class="big-number" style="font-size:28px">₩2,136,113</div>
       <div class="subtitle-text">노출 622,242 · 웹방문 21,548</div>
+    </div>
+  </div>
+
+  <!-- 🆕 13기 vs 14기 Day별 누적 등록자 비교 -->
+  <div class="grid-1">
+    <div class="card dday-chart-card">
+      <div class="card-title">📈 13기 vs 14기 — Day별 누적 등록자 비교 (1차 EB OPEN = Day 0 기준) <span class="badge">대표님 핵심</span></div>
+      <svg viewBox="0 0 1180 320" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block"><line x1="50" y1="280.0" x2="1150" y2="280.0" stroke="#f0f0f5" stroke-width="1"/><text x="42" y="284.0" text-anchor="end" font-size="10" fill="#8888a0">0</text><line x1="50" y1="215.0" x2="1150" y2="215.0" stroke="#f0f0f5" stroke-width="1"/><text x="42" y="219.0" text-anchor="end" font-size="10" fill="#8888a0">30</text><line x1="50" y1="150.0" x2="1150" y2="150.0" stroke="#f0f0f5" stroke-width="1"/><text x="42" y="154.0" text-anchor="end" font-size="10" fill="#8888a0">60</text><line x1="50" y1="85.0" x2="1150" y2="85.0" stroke="#f0f0f5" stroke-width="1"/><text x="42" y="89.0" text-anchor="end" font-size="10" fill="#8888a0">90</text><line x1="50" y1="20.0" x2="1150" y2="20.0" stroke="#f0f0f5" stroke-width="1"/><text x="42" y="24.0" text-anchor="end" font-size="10" fill="#8888a0">120</text><line x1="441.5" y1="20" x2="441.5" y2="280" stroke="#dc3545" stroke-width="1" stroke-dasharray="4,3"/><text x="441.5" y="16" text-anchor="middle" font-size="10" font-weight="600" fill="#dc3545">1차 EB OPEN</text><polyline points="50.0,280.0 68.6,280.0 87.3,280.0 105.9,280.0 124.6,280.0 143.2,277.8 161.9,275.7 180.5,273.5 199.2,271.3 217.8,271.3 236.4,271.3 255.1,267.0 273.7,267.0 292.4,264.8 311.0,264.8 329.7,264.8 348.3,264.8 366.9,264.8 385.6,264.8 404.2,262.7 422.9,262.7 441.5,262.7 460.2,254.0 478.8,217.2 497.5,199.8 516.1,199.8 534.7,193.3 553.4,193.3 572.0,193.3 590.7,193.3 609.3,193.3 628.0,193.3 646.6,193.3 665.3,193.3 683.9,193.3 702.5,191.2 721.2,173.8 739.8,154.3 758.5,126.2 777.1,124.0 795.8,121.8 814.4,119.7 833.1,119.7 851.7,119.7 870.3,119.7 889.0,119.7 907.6,119.7 926.3,119.7 944.9,119.7 963.6,106.7 982.2,87.2 1000.8,85.0 1019.5,63.3 1038.1,50.3 1056.8,50.3 1075.4,50.3 1094.1,48.2 1112.7,48.2 1131.4,48.2 1150.0,22.2" fill="none" stroke="#a0a4b8" stroke-width="2.5" stroke-linejoin="round"/><polyline points="50.0,277.8 68.6,275.7 87.3,275.7 105.9,275.7 124.6,271.3 143.2,271.3 161.9,260.5 180.5,256.2 199.2,251.8 217.8,251.8 236.4,249.7 255.1,243.2 273.7,238.8 292.4,236.7 311.0,232.3 329.7,228.0 348.3,228.0 366.9,221.5 385.6,221.5 404.2,219.3" fill="none" stroke="#4d8cff" stroke-width="3" stroke-linejoin="round"/><text x="50.0" y="298" text-anchor="middle" font-size="10" fill="#6c7293">D-21</text><text x="180.5" y="298" text-anchor="middle" font-size="10" fill="#6c7293">D-14</text><text x="311.0" y="298" text-anchor="middle" font-size="10" fill="#6c7293">D-7</text><text x="441.5" y="298" text-anchor="middle" font-size="10" fill="#6c7293">D-Day</text><text x="572.0" y="298" text-anchor="middle" font-size="10" fill="#6c7293">Day7</text><text x="702.5" y="298" text-anchor="middle" font-size="10" fill="#6c7293">Day14</text><text x="833.1" y="298" text-anchor="middle" font-size="10" fill="#6c7293">Day21</text><text x="963.6" y="298" text-anchor="middle" font-size="10" fill="#6c7293">Day28</text><text x="1094.1" y="298" text-anchor="middle" font-size="10" fill="#6c7293">Day35</text><circle cx="404.2" cy="219.3" r="6" fill="#4d8cff" stroke="#fff" stroke-width="2"/><text x="404.2" y="207.3" text-anchor="middle" font-size="11" font-weight="700" fill="#2d3561">14기 28명 (+20.0)</text></svg><div class="dday-legend"><span><span class="legend-dot" style="background:#a0a4b8"></span>13기 (3/4~)</span><span><span class="legend-dot" style="background:#4d8cff"></span>14기 (4/30~)</span><span><span class="legend-dot" style="background:#dc3545;width:6px;height:14px;border-radius:0"></span>1차 EB OPEN (Day 0)</span></div><table class="dday-table"><thead><tr><th>시점</th><th>13기 누적</th><th>14기 누적</th><th>차이</th></tr></thead><tbody><tr><td>D-21</td><td>0명</td><td><b>1</b></td><td style="color:#28a745;font-weight:700">+1.0명</td></tr><tr><td>D-14</td><td>3명</td><td><b>11</b></td><td style="color:#28a745;font-weight:700">+8.0명</td></tr><tr><td>D-7</td><td>7명</td><td><b>22</b></td><td style="color:#28a745;font-weight:700">+15.0명</td></tr><tr><td>D-Day(1차EB)</td><td>8명</td><td><b>⏳</b></td><td style="color:#8888a0;font-weight:700">—</td></tr></tbody></table>
     </div>
   </div>
 
