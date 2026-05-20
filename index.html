@@ -5,78 +5,135 @@
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <title>310 다이어트 클래스 14기 — 운영 대시보드</title>
 <style>
+  /* 컬러 토큰 — 3색 통일 (네이비/블루/그린) */
+  :root {
+    --c-navy: #1f2746;
+    --c-navy-2: #2d3561;
+    --c-blue: #4d8cff;
+    --c-blue-soft: #e8f0ff;
+    --c-green: #28c76f;
+    --c-amber: #ff9f43;
+    --c-red: #ea5455;
+    --c-text: #1a1a2e;
+    --c-mute: #6c7293;
+    --c-mute-2: #8e95b0;
+    --c-bg: #f5f6fa;
+    --c-card: #ffffff;
+    --c-border: #ebedf5;
+    --shadow-sm: 0 2px 8px rgba(31, 39, 70, 0.06);
+    --shadow-md: 0 6px 20px rgba(31, 39, 70, 0.08);
+    --shadow-lg: 0 12px 32px rgba(31, 39, 70, 0.12);
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: -apple-system, 'Pretendard', 'Noto Sans KR', sans-serif;
-    background: #f4f5f7;
-    color: #1a1a2e;
+    font-family: -apple-system, 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    background: var(--c-bg);
+    color: var(--c-text);
     line-height: 1.5;
-    padding: 25px 20px;
+    padding: 28px 20px;
+    -webkit-font-smoothing: antialiased;
   }
   .container { max-width: 1280px; margin: 0 auto; }
+  b { color: var(--c-navy-2); font-weight: 700; }
 
-  /* 헤더 */
+  /* 헤더 — 강화된 그라데이션 + 배경 패턴 */
   .header {
-    background: linear-gradient(135deg, #2d3561 0%, #4d5b8c 100%);
+    background: linear-gradient(135deg, var(--c-navy) 0%, var(--c-navy-2) 60%, #3d4878 100%);
     color: #fff;
-    padding: 28px 35px;
-    border-radius: 14px;
-    margin-bottom: 22px;
-    box-shadow: 0 4px 20px rgba(45, 53, 97, 0.25);
+    padding: 32px 38px;
+    border-radius: 18px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-lg);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    overflow: hidden;
   }
-  .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-  .header .subtitle { font-size: 13px; opacity: 0.8; }
-  .header .timestamp { font-size: 12px; opacity: 0.75; text-align: right; }
-  .header .timestamp .big { font-size: 16px; font-weight: 700; opacity: 1; }
+  .header::before {
+    content: '';
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(77,140,255,0.15) 0%, transparent 70%);
+  }
+  .header h1 { font-size: 24px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.3px; }
+  .header .subtitle { font-size: 13px; opacity: 0.7; font-weight: 400; }
+  .header .timestamp { font-size: 12px; opacity: 0.7; text-align: right; position: relative; }
+  .header .timestamp .big {
+    font-size: 18px; font-weight: 700; opacity: 1; color: #fff; letter-spacing: 0.3px;
+  }
+
+  /* 섹션 라벨 (대표님 요약 / 운영 KPI / 비교 분석) */
+  .section-label {
+    font-size: 11px; font-weight: 700; color: var(--c-mute-2);
+    text-transform: uppercase; letter-spacing: 1.2px;
+    margin: 6px 0 12px 4px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::before {
+    content: ''; width: 3px; height: 14px; background: var(--c-blue); border-radius: 2px;
+  }
 
   /* 그리드 */
-  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-bottom: 18px; }
-  .grid-2 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 18px; margin-bottom: 18px; }
-  .grid-1 { margin-bottom: 18px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .grid-2 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .grid-1 { margin-bottom: 24px; }
 
-  /* 카드 */
+  /* 카드 (기본) */
   .card {
-    background: #fff;
-    padding: 22px 26px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    background: var(--c-card);
+    padding: 22px 24px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--c-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
   .card-title {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
-    color: #6c7293;
+    color: var(--c-mute);
     margin-bottom: 14px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #f0f0f5;
+    border-bottom: 1px solid var(--c-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    letter-spacing: -0.2px;
   }
   .card-title .badge {
-    font-size: 11px;
-    background: #4d8cff;
+    font-size: 10px;
+    background: var(--c-blue);
     color: #fff;
     padding: 3px 9px;
     border-radius: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
   }
 
   /* 큰 숫자 */
   .big-number {
     font-size: 38px;
     font-weight: 800;
-    color: #2d3561;
+    color: var(--c-navy-2);
     line-height: 1.2;
+    letter-spacing: -1px;
   }
-  .big-number .unit { font-size: 20px; color: #6c7293; }
+  .big-number .unit { font-size: 18px; color: var(--c-mute); font-weight: 600; }
   .subtitle-text {
     font-size: 12px;
-    color: #6c7293;
+    color: var(--c-mute);
     margin-top: 6px;
+    line-height: 1.5;
   }
-  .star { color: #ffc107; font-weight: 700; }
+  .star { color: var(--c-amber); font-weight: 700; }
 
   /* D-Day 카드 */
   .dday-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
@@ -274,73 +331,138 @@
     font-weight: 600;
   }
 
-  /* ── 대표님 요약 4카드 (헤더 아래) ── */
-  .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 22px; }
+  /* ═════ 대표님 요약 4카드 (헤더 아래, 가장 큰 시각 우선순위) ═════ */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
   .summary-card {
-    background: linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
-    padding: 20px 22px;
-    border-radius: 14px;
-    border: 1px solid #e7e8ee;
-    box-shadow: 0 4px 16px rgba(45, 53, 97, 0.08);
-    min-height: 220px;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    padding: 22px 22px 20px;
+    border-radius: 16px;
+    border: 1px solid var(--c-border);
+    box-shadow: var(--shadow-md);
+    min-height: 260px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .summary-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--c-blue) 0%, var(--c-navy-2) 100%);
+    border-radius: 16px 16px 0 0;
+  }
+  .summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
   }
   .summary-title {
     font-size: 12px;
     font-weight: 700;
-    color: #6c7293;
+    color: var(--c-mute);
     margin-bottom: 14px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #f0f0f5;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--c-border);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    letter-spacing: -0.2px;
   }
   .summary-title .ceo-badge {
-    font-size: 10px; background: #2d3561; color: #fff;
-    padding: 2px 8px; border-radius: 8px; font-weight: 600;
+    font-size: 9px; background: var(--c-navy); color: #fff;
+    padding: 3px 9px; border-radius: 10px; font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* 비유 라벨 (모든 요약 카드 공통) */
+  .analogy {
+    font-size: 11px; color: var(--c-blue);
+    text-align: center; margin: 6px 0 10px;
+    padding: 5px 10px; background: var(--c-blue-soft);
+    border-radius: 6px; font-weight: 600;
   }
 
   /* ⑴ 진척률 게이지 */
   .gauge-wrap { text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-  .gauge-svg { width: 130px; height: 130px; margin: 0 auto; }
+  .gauge-svg { width: 140px; height: 140px; margin: 0 auto; }
   .gauge-status { font-size: 13px; font-weight: 700; margin-top: 4px; }
-  .gauge-sub { font-size: 11px; color: #6c7293; margin-top: 4px; }
-  .gauge-sub b { color: #1a1a2e; }
+  .gauge-analogy {
+    font-size: 11px; color: var(--c-blue);
+    text-align: center; margin: 8px 0 4px;
+    padding: 5px 10px; background: var(--c-blue-soft);
+    border-radius: 6px; font-weight: 600;
+  }
+  .gauge-analogy b { color: var(--c-navy); }
+  .gauge-sub { font-size: 11px; color: var(--c-mute); margin-top: 4px; }
+  .gauge-sub b { color: var(--c-text); }
 
   /* ⑵ 페이스 비교 */
   .pace-wrap { flex: 1; display: flex; flex-direction: column; justify-content: center; }
   .pace-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .pace-label { font-size: 11px; color: #6c7293; font-weight: 600; width: 32px; }
-  .pace-bar-bg { flex: 1; height: 22px; background: #f0f0f5; border-radius: 6px; overflow: hidden; }
-  .pace-bar { height: 100%; display: flex; align-items: center; padding: 0 8px; border-radius: 6px; transition: width .3s; }
+  .pace-label { font-size: 11px; color: var(--c-mute); font-weight: 700; width: 32px; }
+  .pace-bar-bg { flex: 1; height: 24px; background: #f0f2f7; border-radius: 6px; overflow: hidden; }
+  .pace-bar {
+    height: 100%; display: flex; align-items: center;
+    padding: 0 10px; border-radius: 6px;
+    transition: width .4s cubic-bezier(.4,0,.2,1);
+  }
   .pace-bar span { color: #fff; font-size: 11px; font-weight: 700; white-space: nowrap; }
-  .pace-gap { text-align: center; font-size: 13px; font-weight: 700; margin-top: 6px; }
-  .pace-sub { text-align: center; font-size: 10px; color: #8888a0; margin-top: 4px; }
+  .pace-gap { text-align: center; font-size: 13px; font-weight: 700; margin-top: 8px; }
+  .pace-analogy {
+    font-size: 11px; color: var(--c-blue);
+    text-align: center; margin: 8px 0 4px;
+    padding: 5px 10px; background: var(--c-blue-soft);
+    border-radius: 6px; font-weight: 600;
+  }
+  .pace-analogy b { color: var(--c-navy); }
+  .pace-sub { text-align: center; font-size: 10px; color: var(--c-mute-2); margin-top: 4px; }
 
   /* ⑶ ROAS */
   .roas-wrap { flex: 1; display: flex; flex-direction: column; justify-content: center; }
   .roas-big {
-    font-size: 44px; font-weight: 800; color: #28a745; text-align: center; line-height: 1; margin-bottom: 4px;
+    font-size: 48px; font-weight: 800; color: var(--c-green); text-align: center;
+    line-height: 1; margin-bottom: 4px; letter-spacing: -1.5px;
   }
-  .roas-unit { font-size: 18px; color: #6c7293; margin-left: 2px; }
+  .roas-unit { font-size: 18px; color: var(--c-mute); margin-left: 4px; font-weight: 600; }
+  .roas-analogy {
+    font-size: 11px; color: var(--c-blue);
+    text-align: center; margin: 8px 0 6px;
+    padding: 5px 10px; background: var(--c-blue-soft);
+    border-radius: 6px; font-weight: 700;
+  }
   .roas-diff { text-align: center; font-size: 12px; font-weight: 700; margin-bottom: 12px; }
   .roas-detail {
     font-size: 11px; color: #4a4a5e; line-height: 1.6;
-    text-align: center; padding-top: 10px; border-top: 1px solid #f0f0f5;
+    text-align: center; padding-top: 10px; border-top: 1px solid var(--c-border);
   }
 
   /* ⑷ 매출 */
   .rev-wrap { flex: 1; display: flex; flex-direction: column; justify-content: center; }
   .rev-big {
-    font-size: 26px; font-weight: 800; color: #2d3561; text-align: center; line-height: 1.2;
+    font-size: 32px; font-weight: 800; color: var(--c-navy-2); text-align: center;
+    line-height: 1.2; letter-spacing: -1px;
   }
-  .rev-sub { text-align: center; font-size: 11px; color: #6c7293; margin-top: 6px; margin-bottom: 12px; }
-  .rev-sub b { color: #1a1a2e; }
-  .rev-progress-bar { height: 8px; background: #f0f0f5; border-radius: 4px; overflow: hidden; }
-  .rev-progress-fill { height: 100%; background: linear-gradient(90deg, #4d8cff 0%, #2d3561 100%); border-radius: 4px; }
-  .rev-progress-label { text-align: center; font-size: 10px; color: #6c7293; margin-top: 5px; }
-  .rev-progress-label b { color: #2d3561; }
+  .rev-unit { font-size: 16px; color: var(--c-mute); font-weight: 600; margin-left: 3px; }
+  .rev-analogy {
+    font-size: 11px; color: var(--c-blue);
+    text-align: center; margin: 8px 0 6px;
+    padding: 5px 10px; background: var(--c-blue-soft);
+    border-radius: 6px; font-weight: 700;
+  }
+  .rev-sub { text-align: center; font-size: 11px; color: var(--c-mute); margin: 4px 0 12px; }
+  .rev-sub b { color: var(--c-text); }
+  .rev-progress-bar { height: 8px; background: #f0f2f7; border-radius: 4px; overflow: hidden; }
+  .rev-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--c-blue) 0%, var(--c-navy-2) 100%);
+    border-radius: 4px;
+    transition: width .4s cubic-bezier(.4,0,.2,1);
+  }
+  .rev-progress-label { text-align: center; font-size: 10px; color: var(--c-mute); margin-top: 5px; }
+  .rev-progress-label b { color: var(--c-navy-2); }
 
   /* Day별 비교 차트 */
   .dday-chart-card { padding-bottom: 18px; }
@@ -377,6 +499,25 @@
   }
   .action-list li:last-child { border-bottom: none; }
   .action-list b { color: #dc3545; }
+
+  /* ═════ 모바일 반응형 ═════ */
+  @media (max-width: 1024px) {
+    .summary-grid, .grid-4 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+    .header { padding: 24px 26px; }
+    .header h1 { font-size: 20px; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 16px 12px; }
+    .summary-grid, .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 12px; margin-bottom: 18px; }
+    .header { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px 22px; }
+    .header .timestamp { text-align: left; }
+    .card, .summary-card { padding: 18px 18px; }
+    .summary-card { min-height: auto; }
+    .roas-big { font-size: 40px; }
+    .rev-big { font-size: 26px; }
+    .big-number { font-size: 30px; }
+  }
 </style>
 </head>
 <body>
@@ -389,30 +530,34 @@
       <div class="subtitle">매일 sync.bat 실행 시 자동 갱신 · 박민수님 + 록코치/이사님 보고용</div>
     </div>
     <div class="timestamp">
-      <div class="big">2026-05-20 15:22</div>
+      <div class="big">2026-05-20 15:35</div>
       <div>마지막 갱신</div>
     </div>
   </div>
 
-  <!-- ⭐ 대표님 요약 4카드 -->
+  <!-- 섹션 1: 대표님 요약 -->
+  <div class="section-label">대표님 핵심 요약</div>
   <div class="summary-grid">
     <div class="summary-card">
       <div class="summary-title">⑴ 목표 진척률 <span class="ceo-badge">대표님</span></div>
-      <div class="gauge-wrap"><svg viewBox="0 0 120 120" class="gauge-svg"><circle cx="60" cy="60" r="50" fill="none" stroke="#f0f0f5" stroke-width="14"/><circle cx="60" cy="60" r="50" fill="none" stroke="#dc3545" stroke-width="14" stroke-dasharray="314" stroke-dashoffset="258" stroke-linecap="round" transform="rotate(-90 60 60)"/><text x="60" y="58" text-anchor="middle" font-size="22" font-weight="800" fill="#2d3561">18.0%</text><text x="60" y="76" text-anchor="middle" font-size="10" fill="#6c7293">27/150명</text></svg><div class="gauge-status" style="color:#dc3545">🔴 부족</div><div class="gauge-sub">남은 <b>123명</b> · 39일 남음</div></div>
+      <div class="gauge-wrap"><svg viewBox="0 0 120 120" class="gauge-svg"><circle cx="60" cy="60" r="50" fill="none" stroke="#f0f0f5" stroke-width="14"/><circle cx="60" cy="60" r="50" fill="none" stroke="#dc3545" stroke-width="14" stroke-dasharray="314" stroke-dashoffset="258" stroke-linecap="round" transform="rotate(-90 60 60)"/><text x="60" y="58" text-anchor="middle" font-size="22" font-weight="800" fill="#2d3561">18.0%</text><text x="60" y="76" text-anchor="middle" font-size="10" fill="#6c7293">27/150명</text></svg><div class="gauge-status" style="color:#dc3545">🔴 부족</div><div class="gauge-analogy">목표까지 <b>123명</b> 더 필요</div><div class="gauge-sub">남은 기간 <b>39일</b></div></div>
     </div>
     <div class="summary-card">
       <div class="summary-title">⑵ 페이스 비교 <span class="ceo-badge">대표님</span></div>
-      <div class="pace-wrap"><div class="pace-row"><div class="pace-label">필요</div><div class="pace-bar-bg"><div class="pace-bar" style="width:100%;background:#4d8cff"><span>3.15명/일</span></div></div></div><div class="pace-row"><div class="pace-label">현재</div><div class="pace-bar-bg"><div class="pace-bar" style="width:41%;background:#dc3545"><span>1.29명/일</span></div></div></div><div class="pace-gap" style="color:#dc3545">🔴 큰 부족 (-59.0%)</div><div class="pace-sub">남은 39일 × 필요 3.15명/일 = 123명</div></div>
+      <div class="pace-wrap"><div class="pace-row"><div class="pace-label">필요</div><div class="pace-bar-bg"><div class="pace-bar" style="width:100%;background:#4d8cff"><span>3.15명/일</span></div></div></div><div class="pace-row"><div class="pace-label">현재</div><div class="pace-bar-bg"><div class="pace-bar" style="width:41%;background:#dc3545"><span>1.29명/일</span></div></div></div><div class="pace-gap" style="color:#dc3545">🔴 큰 부족 (-59.0%)</div><div class="pace-analogy">하루 <b>1.86명</b> 더 필요해야 목표 달성</div><div class="pace-sub">남은 39일 × 3.15명/일 = 123명</div></div>
     </div>
     <div class="summary-card">
       <div class="summary-title">⑶ 14기 실시간 ROAS <span class="ceo-badge">대표님</span></div>
-      <div class="roas-wrap"><div class="roas-big">103.4<span class="roas-unit">배</span></div><div class="roas-diff" style="color:#28a745">⭐ 13기 대비 +236%</div><div class="roas-detail">광고비 ₩218,767 (YT ₩218,767)<br>매출 ₩22,620,000<br><span style="color:#8888a0;font-size:10px">13기 ROAS 30.80823836배</span></div></div>
+      <div class="roas-wrap"><div class="roas-big">103.4<span class="roas-unit">배</span></div><div class="roas-analogy">광고 ₩1 → 매출 ₩103</div><div class="roas-diff" style="color:#28a745">⭐ 13기 대비 +236%</div><div class="roas-detail">광고비 ₩218,767 (YT)<br>매출 ₩22,620,000<br><span style="color:#8888a0;font-size:10px">13기 ROAS 30.80823836배</span></div></div>
     </div>
     <div class="summary-card">
       <div class="summary-title">⑷ 14기 매출 <span class="ceo-badge">대표님</span></div>
-      <div class="rev-wrap"><div class="rev-big">₩22,620,000</div><div class="rev-sub">실등록 <b>27명</b> · CAC <b>₩8,102</b></div><div class="rev-progress-bar"><div class="rev-progress-fill" style="width:19%"></div></div><div class="rev-progress-label">13기 ₩119,590,000 대비 <b>18.9%</b></div></div>
+      <div class="rev-wrap"><div class="rev-big">₩2,262<span class="rev-unit">만원</span></div><div class="rev-analogy">실등록 1명당 ₩83만원 객단가</div><div class="rev-sub">CAC <b>₩8,102</b> · 등록 <b>27명</b></div><div class="rev-progress-bar"><div class="rev-progress-fill" style="width:19%"></div></div><div class="rev-progress-label">13기 1.20억 대비 <b>18.9%</b></div></div>
     </div>
   </div>
+
+  <!-- 섹션 2: 운영 KPI -->
+  <div class="section-label">운영 KPI · 일정</div>
 
   <!-- D-Day -->
   <div class="grid-1">
@@ -445,10 +590,13 @@
     </div>
   </div>
 
-  <!-- 🆕 13기 vs 14기 Day별 누적 등록자 비교 -->
+  <!-- 섹션 3: 13기 vs 14기 비교 분석 -->
+  <div class="section-label">13기 vs 14기 비교 분석</div>
+
+  <!-- 13기 vs 14기 Day별 누적 등록자 비교 -->
   <div class="grid-1">
     <div class="card dday-chart-card">
-      <div class="card-title">📈 13기 vs 14기 — Day별 누적 등록자 비교 (1차 EB OPEN = Day 0 기준) <span class="badge">대표님 핵심</span></div>
+      <div class="card-title">📈 Day별 누적 등록자 비교 (1차 EB OPEN = Day 0 기준) <span class="badge">대표님 핵심</span></div>
       <svg viewBox="0 0 1180 320" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block"><line x1="50" y1="280.0" x2="1150" y2="280.0" stroke="#f0f0f5" stroke-width="1"/><text x="42" y="284.0" text-anchor="end" font-size="10" fill="#8888a0">0</text><line x1="50" y1="215.0" x2="1150" y2="215.0" stroke="#f0f0f5" stroke-width="1"/><text x="42" y="219.0" text-anchor="end" font-size="10" fill="#8888a0">30</text><line x1="50" y1="150.0" x2="1150" y2="150.0" stroke="#f0f0f5" stroke-width="1"/><text x="42" y="154.0" text-anchor="end" font-size="10" fill="#8888a0">60</text><line x1="50" y1="85.0" x2="1150" y2="85.0" stroke="#f0f0f5" stroke-width="1"/><text x="42" y="89.0" text-anchor="end" font-size="10" fill="#8888a0">90</text><line x1="50" y1="20.0" x2="1150" y2="20.0" stroke="#f0f0f5" stroke-width="1"/><text x="42" y="24.0" text-anchor="end" font-size="10" fill="#8888a0">120</text><line x1="441.5" y1="20" x2="441.5" y2="280" stroke="#dc3545" stroke-width="1" stroke-dasharray="4,3"/><text x="441.5" y="16" text-anchor="middle" font-size="10" font-weight="600" fill="#dc3545">1차 EB OPEN</text><polyline points="50.0,280.0 68.6,280.0 87.3,280.0 105.9,280.0 124.6,280.0 143.2,277.8 161.9,275.7 180.5,273.5 199.2,271.3 217.8,271.3 236.4,271.3 255.1,267.0 273.7,267.0 292.4,264.8 311.0,264.8 329.7,264.8 348.3,264.8 366.9,264.8 385.6,264.8 404.2,262.7 422.9,262.7 441.5,262.7 460.2,254.0 478.8,217.2 497.5,199.8 516.1,199.8 534.7,193.3 553.4,193.3 572.0,193.3 590.7,193.3 609.3,193.3 628.0,193.3 646.6,193.3 665.3,193.3 683.9,193.3 702.5,191.2 721.2,173.8 739.8,154.3 758.5,126.2 777.1,124.0 795.8,121.8 814.4,119.7 833.1,119.7 851.7,119.7 870.3,119.7 889.0,119.7 907.6,119.7 926.3,119.7 944.9,119.7 963.6,106.7 982.2,87.2 1000.8,85.0 1019.5,63.3 1038.1,50.3 1056.8,50.3 1075.4,50.3 1094.1,48.2 1112.7,48.2 1131.4,48.2 1150.0,22.2" fill="none" stroke="#a0a4b8" stroke-width="2.5" stroke-linejoin="round"/><polyline points="50.0,277.8 68.6,275.7 87.3,275.7 105.9,275.7 124.6,271.3 143.2,271.3 161.9,260.5 180.5,256.2 199.2,251.8 217.8,251.8 236.4,249.7 255.1,243.2 273.7,238.8 292.4,236.7 311.0,232.3 329.7,228.0 348.3,228.0 366.9,221.5 385.6,221.5 404.2,219.3" fill="none" stroke="#4d8cff" stroke-width="3" stroke-linejoin="round"/><text x="50.0" y="298" text-anchor="middle" font-size="10" fill="#6c7293">D-21</text><text x="180.5" y="298" text-anchor="middle" font-size="10" fill="#6c7293">D-14</text><text x="311.0" y="298" text-anchor="middle" font-size="10" fill="#6c7293">D-7</text><text x="441.5" y="298" text-anchor="middle" font-size="10" fill="#6c7293">D-Day</text><text x="572.0" y="298" text-anchor="middle" font-size="10" fill="#6c7293">Day7</text><text x="702.5" y="298" text-anchor="middle" font-size="10" fill="#6c7293">Day14</text><text x="833.1" y="298" text-anchor="middle" font-size="10" fill="#6c7293">Day21</text><text x="963.6" y="298" text-anchor="middle" font-size="10" fill="#6c7293">Day28</text><text x="1094.1" y="298" text-anchor="middle" font-size="10" fill="#6c7293">Day35</text><circle cx="404.2" cy="219.3" r="6" fill="#4d8cff" stroke="#fff" stroke-width="2"/><text x="404.2" y="207.3" text-anchor="middle" font-size="11" font-weight="700" fill="#2d3561">14기 28명 (+20.0)</text></svg><div class="dday-legend"><span><span class="legend-dot" style="background:#a0a4b8"></span>13기 (3/4~)</span><span><span class="legend-dot" style="background:#4d8cff"></span>14기 (4/30~)</span><span><span class="legend-dot" style="background:#dc3545;width:6px;height:14px;border-radius:0"></span>1차 EB OPEN (Day 0)</span></div><table class="dday-table"><thead><tr><th>시점</th><th>13기 누적</th><th>14기 누적</th><th>차이</th></tr></thead><tbody><tr><td>D-21</td><td>0명</td><td><b>1</b></td><td style="color:#28a745;font-weight:700">+1.0명</td></tr><tr><td>D-14</td><td>3명</td><td><b>11</b></td><td style="color:#28a745;font-weight:700">+8.0명</td></tr><tr><td>D-7</td><td>7명</td><td><b>22</b></td><td style="color:#28a745;font-weight:700">+15.0명</td></tr><tr><td>D-Day(1차EB)</td><td>8명</td><td><b>⏳</b></td><td style="color:#8888a0;font-weight:700">—</td></tr></tbody></table>
     </div>
   </div>
@@ -476,6 +624,9 @@
       </div>
     </div>
   </div>
+
+  <!-- 섹션 4: 추세 모니터링 -->
+  <div class="section-label">추세 모니터링</div>
 
   <!-- 차트 섹션: 일별 등록 + SNS 채널 + 카카오 친구 -->
   <div class="grid-3">
