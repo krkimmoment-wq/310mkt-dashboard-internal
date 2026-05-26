@@ -493,6 +493,29 @@
     border-radius: 8px;
   }
   .dday-table-wrap thead { position: sticky; top: 0; z-index: 5; }
+
+  /* 🆕 비틀리 구간별 카드 */
+  .bitly-table-wrap { margin: 12px 0 24px; border: 1px solid var(--c-border); border-radius: 8px; overflow: hidden; }
+  .bitly-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .bitly-table th { background: var(--c-bg-2); padding: 10px 8px; text-align: left; font-weight: 700; color: #5a5f78; border-bottom: 1px solid var(--c-border); }
+  .bitly-table td { padding: 10px 8px; border-bottom: 1px solid var(--c-border); vertical-align: middle; }
+  .bitly-table tr:last-child td { border-bottom: none; }
+  .bitly-table tbody tr:hover { background: #f7f9fc; }
+  .bitly-table b { color: var(--c-navy-2); font-size: 13px; }
+
+  .bs-chart-wrap { margin-top: 16px; }
+  .bs-chart-title { font-size: 13px; font-weight: 700; color: var(--c-text); margin-bottom: 10px; }
+  .bs-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11px; color: #5a5f78; margin-bottom: 14px; }
+  .bs-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+  .bs-row { margin-bottom: 12px; }
+  .bs-label { font-size: 12px; font-weight: 700; color: var(--c-navy-2); margin-bottom: 4px; }
+  .bs-bars { display: flex; flex-direction: column; gap: 4px; }
+  .bs-gen { display: flex; align-items: center; gap: 8px; }
+  .bs-gen > span { font-size: 11px; color: #5a5f78; min-width: 80px; }
+  .bs-bar { flex: 1; display: flex; height: 14px; border-radius: 7px; overflow: hidden; background: #f0f0f5; }
+  .bs-bar-13 { opacity: 0.55; }
+  .bs-seg { transition: opacity 0.2s; cursor: help; }
+  .bs-seg:hover { opacity: 0.85; }
   .dday-table .milestone-row { background: #fffaf0; }
   .dday-table .milestone-row td:first-child { color: var(--c-amber); }
   .dday-table .ms-badge {
@@ -627,7 +650,7 @@
       <div class="subtitle">매일 sync.bat 실행 시 자동 갱신 · 박민수님 + 록코치/이사님 보고용</div>
     </div>
     <div class="timestamp">
-      <div class="big">2026-05-26 13:05</div>
+      <div class="big">2026-05-26 13:23</div>
       <div>마지막 갱신</div>
     </div>
   </div>
@@ -637,11 +660,11 @@
   <div class="summary-grid">
     <div class="summary-card">
       <div class="summary-title">⑴ 목표 진척률 <span class="ceo-badge">대표님</span></div>
-      <div class="gauge-wrap"><svg viewBox="0 0 120 120" class="gauge-svg"><circle cx="60" cy="60" r="50" fill="none" stroke="#f0f0f5" stroke-width="14"/><circle cx="60" cy="60" r="50" fill="none" stroke="#dc3545" stroke-width="14" stroke-dasharray="314" stroke-dashoffset="226" stroke-linecap="round" transform="rotate(-90 60 60)"/><text x="60" y="58" text-anchor="middle" font-size="22" font-weight="800" fill="#2d3561">28.0%</text><text x="60" y="76" text-anchor="middle" font-size="10" fill="#6c7293">42/150명</text></svg><div class="gauge-status" style="color:#dc3545">🔴 부족</div><div class="gauge-analogy">목표까지 <b>108명</b> 더 필요</div><div class="gauge-sub">남은 기간 <b>33일</b></div></div>
+      <div class="gauge-wrap"><svg viewBox="0 0 120 120" class="gauge-svg"><circle cx="60" cy="60" r="50" fill="none" stroke="#f0f0f5" stroke-width="14"/><circle cx="60" cy="60" r="50" fill="none" stroke="#dc3545" stroke-width="14" stroke-dasharray="314" stroke-dashoffset="224" stroke-linecap="round" transform="rotate(-90 60 60)"/><text x="60" y="58" text-anchor="middle" font-size="22" font-weight="800" fill="#2d3561">28.7%</text><text x="60" y="76" text-anchor="middle" font-size="10" fill="#6c7293">43/150명</text></svg><div class="gauge-status" style="color:#dc3545">🔴 부족</div><div class="gauge-analogy">목표까지 <b>107명</b> 더 필요</div><div class="gauge-sub">남은 기간 <b>33일</b></div></div>
     </div>
     <div class="summary-card">
       <div class="summary-title">⑵ 페이스 비교 <span class="ceo-badge">대표님</span></div>
-      <div class="pace-wrap"><div class="pace-row"><div class="pace-label">필요</div><div class="pace-bar-bg"><div class="pace-bar" style="width:100%;background:#4d8cff"><span>3.27명/일</span></div></div></div><div class="pace-row"><div class="pace-label">현재</div><div class="pace-bar-bg"><div class="pace-bar" style="width:48%;background:#dc3545"><span>1.56명/일</span></div></div></div><div class="pace-gap" style="color:#dc3545">🔴 큰 부족 (-52.3%)</div><div class="pace-analogy">하루 <b>1.71명</b> 더 필요해야 목표 달성</div><div class="pace-sub">남은 33일 × 3.27명/일 = 108명</div></div>
+      <div class="pace-wrap"><div class="pace-row"><div class="pace-label">필요</div><div class="pace-bar-bg"><div class="pace-bar" style="width:100%;background:#4d8cff"><span>3.24명/일</span></div></div></div><div class="pace-row"><div class="pace-label">현재</div><div class="pace-bar-bg"><div class="pace-bar" style="width:49%;background:#dc3545"><span>1.59명/일</span></div></div></div><div class="pace-gap" style="color:#dc3545">🔴 큰 부족 (-50.9%)</div><div class="pace-analogy">하루 <b>1.65명</b> 더 필요해야 목표 달성</div><div class="pace-sub">남은 33일 × 3.24명/일 = 107명</div></div>
     </div>
     <div class="summary-card">
       <div class="summary-title">⑶ 14기 실시간 ROAS <span class="ceo-badge">대표님</span></div>
@@ -649,7 +672,7 @@
     </div>
     <div class="summary-card">
       <div class="summary-title">⑷ 14기 매출 <span class="ceo-badge">대표님</span></div>
-      <div class="rev-wrap"><div class="rev-big">₩3,654<span class="rev-unit">만원</span></div><div class="rev-analogy">실등록 1명당 ₩87만원 객단가</div><div class="rev-sub">CAC <b>₩37,463</b> · 등록 <b>42명</b></div><div class="rev-progress-bar"><div class="rev-progress-fill" style="width:31%"></div></div><div class="rev-progress-label">13기 1.20억 대비 <b>30.6%</b></div></div>
+      <div class="rev-wrap"><div class="rev-big">₩3,654<span class="rev-unit">만원</span></div><div class="rev-analogy">실등록 1명당 ₩84만원 객단가</div><div class="rev-sub">CAC <b>₩36,592</b> · 등록 <b>43명</b></div><div class="rev-progress-bar"><div class="rev-progress-fill" style="width:31%"></div></div><div class="rev-progress-label">13기 1.20억 대비 <b>30.6%</b></div></div>
     </div>
   </div>
 
@@ -670,7 +693,7 @@
   <div class="grid-3">
     <div class="card">
       <div class="card-title">📊 14기 사전등록</div>
-      <div class="big-number">42 <span class="unit">/ 45명</span></div>
+      <div class="big-number">43 <span class="unit">/ 46명</span></div>
       <div class="subtitle-text">실등록 / 총신청 · 환불 0 / 미입금 2</div>
     </div>
 
@@ -701,11 +724,19 @@
     </div>
   </div>
 
+  <!-- 🆕 구간별 비틀리 클릭 비교 (14기 vs 13기) -->
+  <div class="grid-1">
+    <div class="card">
+      <div class="card-title">📊 구간별 비틀리 트래픽 비교 (14기 vs 13기) <span class="badge">광고 효율</span></div>
+      <div class="bitly-table-wrap"><table class="bitly-table"><thead><tr><th>구간</th><th>14기 클릭</th><th>13기 클릭</th><th>차이</th><th>14기 1위 채널</th></tr></thead><tbody><tr><td><b>사전등록</b></td><td><b>2,046회</b></td><td><span style="color:#9ca3b5">—</span></td><td><span style="color:#9ca3b5">신규</span></td><td style="font-size:10.5px;color:#5a5f78">🥇Instagram · 🥈YouTube · 🥉KakaoTalk</td></tr><tr><td><b>1차 얼리버드</b></td><td><b>2,626회</b></td><td>2,018회</td><td><span style="color:#28d97e;font-weight:700">+30%</span></td><td style="font-size:10.5px;color:#5a5f78">🥇Instagram 59% · 🥈YouTube 19% · 🥉Ka...</td></tr><tr><td><b>얼리버드 간 대기</b></td><td><b>196회</b></td><td>1,010회</td><td><span style="color:#ea5455;font-weight:700">-81%</span></td><td style="font-size:10.5px;color:#5a5f78">🥇YouTube 48% · 🥈Instagram 27% · 🥉Ka...</td></tr><tr><td><b>2차 얼리버드</b></td><td><span style="color:#9ca3b5">예정</span></td><td>1,964회</td><td>—</td><td style="font-size:10.5px;color:#5a5f78">🥇YouTube 49% · 🥈KakaoTalk 27% · 🥉In...</td></tr><tr><td><b>정규모집 전 대기</b></td><td><span style="color:#9ca3b5">예정</span></td><td>1,656회</td><td>—</td><td style="font-size:10.5px;color:#5a5f78">🥇YouTube 24% · 🥈Instagram 13% · 🥉Di...</td></tr><tr><td><b>정규모집</b></td><td><span style="color:#9ca3b5">예정</span></td><td>2,349회</td><td>—</td><td style="font-size:10.5px;color:#5a5f78">🥇KakaoTalk 27% · 🥈YouTube 26% · 🥉In...</td></tr><tr><td><b>추가등록</b></td><td><span style="color:#9ca3b5">예정</span></td><td>5,641회</td><td>—</td><td style="font-size:10.5px;color:#5a5f78">🥇Instagram 67% · 🥈기타 22% · 🥉KakaoTa...</td></tr></tbody></table></div><div class="bs-chart-wrap"><div class="bs-chart-title">📊 구간별 채널 비중 (14기 vs 13기, 누적 막대)</div><div class="bs-legend"><span><span class="bs-dot" style="background:#ff5e57"></span>YouTube</span><span><span class="bs-dot" style="background:#ffd23f"></span>KakaoTalk</span><span><span class="bs-dot" style="background:#e1306c"></span>Instagram</span><span><span class="bs-dot" style="background:#4d8cff"></span>Direct</span><span><span class="bs-dot" style="background:#1f1f1f"></span>TikTok</span><span><span class="bs-dot" style="background:#a0a4b8"></span>기타</span></div><div class="bs-row"><div class="bs-label">사전등록</div><div class="bs-bars"><div class="bs-gen"><span>14기 2,046</span><div class="bs-bar"><div class="bs-seg" style="flex:17.98631476050831;background:#ff5e57" title="YouTube 368회 (18%)"></div><div class="bs-seg" style="flex:16.81329423264907;background:#ffd23f" title="KakaoTalk 344회 (17%)"></div><div class="bs-seg" style="flex:46.28543499511241;background:#e1306c" title="Instagram 947회 (46%)"></div><div class="bs-seg" style="flex:15.689149560117302;background:#4d8cff" title="Direct 321회 (16%)"></div><div class="bs-seg" style="flex:2.0527859237536656;background:#1f1f1f" title="TikTok 42회 (2%)"></div><div class="bs-seg" style="flex:1.1730205278592376;background:#a0a4b8" title="기타 24회 (1%)"></div></div></div></div></div><div class="bs-row"><div class="bs-label">1차 얼리버드</div><div class="bs-bars"><div class="bs-gen"><span>14기 2,626</span><div class="bs-bar"><div class="bs-seg" style="flex:19.42117288651942;background:#ff5e57" title="YouTube 510회 (19%)"></div><div class="bs-seg" style="flex:17.66945925361767;background:#ffd23f" title="KakaoTalk 464회 (18%)"></div><div class="bs-seg" style="flex:59.32977913175933;background:#e1306c" title="Instagram 1,558회 (59%)"></div><div class="bs-seg" style="flex:3.2368621477532367;background:#4d8cff" title="Direct 85회 (3%)"></div><div class="bs-seg" style="flex:0.26656511805026656;background:#1f1f1f" title="TikTok 7회 (0%)"></div><div class="bs-seg" style="flex:0.07616146230007616;background:#a0a4b8" title="기타 2회 (0%)"></div></div></div><div class="bs-gen"><span>13기 2,018</span><div class="bs-bar bs-bar-13"><div class="bs-seg" style="flex:36.27353815659068;background:#ff5e57" title="YouTube 732회 (36%)"></div><div class="bs-seg" style="flex:30.971258671952427;background:#ffd23f" title="KakaoTalk 625회 (31%)"></div><div class="bs-seg" style="flex:16.74925668979187;background:#e1306c" title="Instagram 338회 (17%)"></div><div class="bs-seg" style="flex:13.37958374628345;background:#4d8cff" title="Direct 270회 (13%)"></div><div class="bs-seg" style="flex:1.5857284440039643;background:#1f1f1f" title="TikTok 32회 (2%)"></div><div class="bs-seg" style="flex:1.0406342913776017;background:#a0a4b8" title="기타 21회 (1%)"></div></div></div></div></div><div class="bs-row"><div class="bs-label">얼리버드 간 대기</div><div class="bs-bars"><div class="bs-gen"><span>14기 196</span><div class="bs-bar"><div class="bs-seg" style="flex:47.95918367346938;background:#ff5e57" title="YouTube 94회 (48%)"></div><div class="bs-seg" style="flex:17.346938775510203;background:#ffd23f" title="KakaoTalk 34회 (17%)"></div><div class="bs-seg" style="flex:27.040816326530614;background:#e1306c" title="Instagram 53회 (27%)"></div><div class="bs-seg" style="flex:5.612244897959184;background:#4d8cff" title="Direct 11회 (6%)"></div><div class="bs-seg" style="flex:2.0408163265306123;background:#1f1f1f" title="TikTok 4회 (2%)"></div></div></div><div class="bs-gen"><span>13기 1,010</span><div class="bs-bar bs-bar-13"><div class="bs-seg" style="flex:25.346534653465348;background:#ff5e57" title="YouTube 256회 (25%)"></div><div class="bs-seg" style="flex:16.237623762376238;background:#ffd23f" title="KakaoTalk 164회 (16%)"></div><div class="bs-seg" style="flex:37.82178217821782;background:#e1306c" title="Instagram 382회 (38%)"></div><div class="bs-seg" style="flex:14.356435643564355;background:#4d8cff" title="Direct 145회 (14%)"></div><div class="bs-seg" style="flex:5.841584158415842;background:#1f1f1f" title="TikTok 59회 (6%)"></div><div class="bs-seg" style="flex:0.39603960396039606;background:#a0a4b8" title="기타 4회 (0%)"></div></div></div></div></div></div>
+    </div>
+  </div>
+
   <!-- 13기 vs 14기 일평균 비교 + 다음 액션 -->
   <div class="grid-2">
     <div class="card">
       <div class="card-title">📈 14기 vs 13기 일평균 비교 <span class="badge">자동 갱신</span></div>
-      <div class="compare-row"><div class="compare-label">사전등록</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:25%">13기 0.3명/일</div><div class="bar-14 bar-fill" style="width:100%">14기 1.2명/일</div></div><div class="compare-status">⭐ +300%</div></div><div class="compare-row"><div class="compare-label">1차 EB</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 9.3명/일</div><div class="bar-14 bar-fill" style="width:54%">14기 5.0명/일</div></div><div class="compare-status">-46%</div></div><div class="compare-row"><div class="compare-label">대기1</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:40%">13기 0.4명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">2차 EB</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 9.7명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">대기2</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:80%">13기 0.8명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">정규</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 7.7명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">추가</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 1.9명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div>
+      <div class="compare-row"><div class="compare-label">사전등록</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:25%">13기 0.3명/일</div><div class="bar-14 bar-fill" style="width:100%">14기 1.2명/일</div></div><div class="compare-status">⭐ +300%</div></div><div class="compare-row"><div class="compare-label">1차 EB</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 9.3명/일</div><div class="bar-14 bar-fill" style="width:54%">14기 5.0명/일</div></div><div class="compare-status">-46%</div></div><div class="compare-row"><div class="compare-label">대기1</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:40%">13기 0.4명/일</div><div class="bar-14 bar-fill" style="width:10%">14기 0.1명/일</div></div><div class="compare-status">-75%</div></div><div class="compare-row"><div class="compare-label">2차 EB</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 9.7명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">대기2</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:80%">13기 0.8명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">정규</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 7.7명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div><div class="compare-row"><div class="compare-label">추가</div><div class="compare-bars"><div class="bar-13 bar-fill" style="width:100%">13기 1.9명/일</div><div class="bar-14 bar-fill" style="width:0%">14기 0.0명/일</div></div><div class="compare-status">⏳ 시작 전</div></div>
     </div>
 
     <div class="card">
